@@ -16,4 +16,7 @@ export class SubClass extends MainClass {
     bar(val) {
         return val / 2;
     }
+    baz(val) {
+        return val * 2;
+    }
 }
