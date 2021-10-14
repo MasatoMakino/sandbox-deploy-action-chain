@@ -8,4 +8,10 @@ export class SubClass extends MainClass{
     sub( val:number):number{
         return super.sub(val) - this.memberValue;
     }
+    foo(val:number):number{
+        return val;
+    }
+    bar(val:number):number{
+        return val/2;
+    }
 }
