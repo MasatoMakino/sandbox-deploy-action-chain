@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "description": "A sketch of deployment automation with GitHub Actions",
   "main": "index.js",
+  "files": [
+    "cjs",
+    "esm"
+  ],
   "scripts": {
     "test": "npx jest",
     "coverage": "npx jest --coverage",
