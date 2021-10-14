@@ -19,8 +19,5 @@ class SubClass extends MainClass_1.MainClass {
     bar(val) {
         return val / 2;
     }
-    baz(val) {
-        return val * 2;
-    }
 }
 exports.SubClass = SubClass;
