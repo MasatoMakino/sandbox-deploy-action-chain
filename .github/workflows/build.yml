@@ -23,6 +23,7 @@ jobs:
         run: |
           npx tsc --project tsconfig.cjs.json
           npx tsc --project tsconfig.esm.json
+      - name: push dist
       - run: |
           git remote set-url origin https://github-actions:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}
           git config --global user.name "${GITHUB_ACTOR}"
