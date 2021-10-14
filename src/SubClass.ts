@@ -6,7 +6,6 @@ export class SubClass extends MainClass{
         return super.add(val) + this.memberValue;
     }
     sub( val:number):number{
-        return super.sub(val) - this.memberValue - 1;
+        return super.sub(val) - this.memberValue;
     }
-
 }

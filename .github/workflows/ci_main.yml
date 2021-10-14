@@ -10,9 +10,7 @@ on:
       - 'src/**'
       - '__test__/**'
       - 'package.json'
-      - 'tsconfig.cjs.json'
-      - 'tsconfig.esm.json'
-      - 'tsconfig.json'
+      - 'tsconfig*.json'
       
 jobs:
   build:
