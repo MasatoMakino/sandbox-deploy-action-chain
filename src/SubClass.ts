@@ -14,7 +14,4 @@ export class SubClass extends MainClass{
     bar(val:number):number{
         return val/2;
     }
-    baz(val:number):number{
-        return val*2;
-    }
 }
