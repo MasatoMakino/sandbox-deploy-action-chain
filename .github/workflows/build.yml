@@ -33,3 +33,11 @@ jobs:
             git commit -m "Build binary by github-actions"
             git push origin HEAD:${GITHUB_REF}
           fi
+      - name: echo github
+        env:
+          GIT_REF: ${{ toJSON(github) }}
+        run: echo $GIT_REF
+      - name: echo github event
+        env:
+          EVENT_REF: ${{ toJSON(github.event) }}
+        run: echo $EVENT_REF
