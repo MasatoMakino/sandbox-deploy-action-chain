@@ -11,7 +11,14 @@ on:
       - '__test__/**'
       - 'package.json'
       - 'tsconfig*.json'
-      
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'src/**'
+      - '__test__/**'
+      - 'package.json'
+      - 'tsconfig*.json'
+
 jobs:
   build:
 
@@ -30,7 +37,3 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm test
-    - name: echo head_ref
-      env:
-        HEAD_REF: ${{ toJSON(github.head_ref) }}
-      run: echo $HEAD_REF
