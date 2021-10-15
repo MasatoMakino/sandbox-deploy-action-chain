@@ -3,6 +3,9 @@ export class SubClass extends MainClass {
     constructor() {
         super(...arguments);
         this.memberValue = 1.0;
+        // baz(val:number):number{
+        //     return val*2;
+        // }
     }
     add(val) {
         return super.add(val) + this.memberValue;
@@ -15,8 +18,5 @@ export class SubClass extends MainClass {
     }
     bar(val) {
         return val / 2;
-    }
-    baz(val) {
-        return val * 2;
     }
 }
