@@ -5,5 +5,6 @@ export declare class SubClass extends MainClass {
     sub(val: number): number;
     foo(val: number): number;
     bar(val: number): number;
+    baz(val: number): number;
 }
 //# sourceMappingURL=SubClass.d.ts.map
