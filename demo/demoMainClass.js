@@ -26,7 +26,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _src
   \**************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"MainClass\": () => (/* binding */ MainClass)\n/* harmony export */ });\nclass MainClass {\n    constructor() { }\n    add(val) {\n        return val + 1;\n    }\n    sub(val) {\n        return val - 1;\n    }\n}\n\n\n//# sourceURL=webpack://sandbox-deploy-action-chain/./src/MainClass.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"MainClass\": () => (/* binding */ MainClass)\n/* harmony export */ });\nclass MainClass {\n    constructor() { }\n    add(val) {\n        return val + 1;\n    }\n    sub(val) {\n        return val - 1;\n    }\n    foo(val) {\n        return val;\n    }\n}\n\n\n//# sourceURL=webpack://sandbox-deploy-action-chain/./src/MainClass.ts?");
 
 /***/ }),
 
@@ -36,7 +36,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \*************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"SubClass\": () => (/* binding */ SubClass)\n/* harmony export */ });\n/* harmony import */ var _MainClass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MainClass */ \"./src/MainClass.ts\");\n\nclass SubClass extends _MainClass__WEBPACK_IMPORTED_MODULE_0__.MainClass {\n    constructor() {\n        super(...arguments);\n        this.memberValue = 1.0;\n    }\n    add(val) {\n        return super.add(val) + this.memberValue;\n    }\n    sub(val) {\n        return super.sub(val) - this.memberValue;\n    }\n    foo(val) {\n        return val;\n    }\n    bar(val) {\n        return val / 2;\n    }\n    baz(val) {\n        return val * 2;\n    }\n}\n\n\n//# sourceURL=webpack://sandbox-deploy-action-chain/./src/SubClass.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"SubClass\": () => (/* binding */ SubClass)\n/* harmony export */ });\n/* harmony import */ var _MainClass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MainClass */ \"./src/MainClass.ts\");\n\nclass SubClass extends _MainClass__WEBPACK_IMPORTED_MODULE_0__.MainClass {\n    constructor() {\n        super(...arguments);\n        this.memberValue = 1.0;\n    }\n    add(val) {\n        return super.add(val) + this.memberValue;\n    }\n    sub(val) {\n        return super.sub(val) - this.memberValue;\n    }\n    foo(val) {\n        return super.foo(val);\n    }\n    bar(val) {\n        return val / 2;\n    }\n    baz(val) {\n        return val * 2;\n    }\n}\n\n\n//# sourceURL=webpack://sandbox-deploy-action-chain/./src/SubClass.ts?");
 
 /***/ }),
 
