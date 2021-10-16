@@ -6,4 +6,7 @@ export class MainClass {
   sub(val: number): number {
     return val - 1;
   }
+  foo(val: number): number {
+    return val;
+  }
 }

@@ -9,7 +9,7 @@ export class SubClass extends MainClass {
     return super.sub(val) - this.memberValue;
   }
   foo(val: number): number {
-    return val;
+    return super.foo(val);
   }
   bar(val: number): number {
     return val / 2;
