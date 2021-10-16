@@ -29,8 +29,7 @@ jobs:
           git config --global user.name "${GITHUB_ACTOR}"
           git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
           git rm .gitignore
-          git pull origin HEAD:bin
-          git rm .gitignore
+          git pull origin HEAD:bins
           if (git diff --shortstat HEAD | grep '[0-9]'); then
             git rm -r --cached .
             git add LICENSE package.json README.md esm cjs
