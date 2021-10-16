@@ -33,5 +33,5 @@ jobs:
             git rm -r --cached .
             git add LICENSE package.json README.md esm cjs
             git commit -m "Build binary by github-actions"
-            git push origin bin
+            git push origin HEAD:bin --force-with-lease
           fi
