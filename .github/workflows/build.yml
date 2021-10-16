@@ -29,6 +29,7 @@ jobs:
           git config --global user.name "${GITHUB_ACTOR}"
           git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
           if (git diff --shortstat HEAD | grep '[0-9]'); then
+            gir rm -r --cached .
             git add LICENSE package.json README.md esm cjs
             git commit -m "Build binary by github-actions"
             git push origin HEAD:bin
