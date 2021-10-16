@@ -1,0 +1,46 @@
+# JSビルドプロセス
+# ビルド後にbinブランチへコンパイルされたJSをpushするパターン
+#
+# デメリット
+#   forceプッシュなのでbinブランチの履歴が残らない
+# メリット
+#   cjs / esmディレクトリをgit管理下から外せる
+#   依存アクションが少ない
+
+name: Build JavaScript binary
+
+on:
+  workflow_run:
+    workflows: ["CI_Main"]
+    branches: [main]
+    types:
+      - completed
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push' && github.event.workflow_run.head_branch == 'main' }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+          cache: "npm"
+      - run: npm ci
+      - name: build binary
+        run: |
+          npx tsc --project tsconfig.cjs.json
+          npx tsc --project tsconfig.esm.json
+      - name: push dist
+        run: |
+          git remote set-url origin https://github-actions:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}
+          git config --global user.name "${GITHUB_ACTOR}"
+          git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          git rm .gitignore
+          if (git diff --shortstat HEAD | grep '[0-9]'); then
+            git rm -r --cached .
+            git add LICENSE package.json README.md esm cjs
+            git commit -m "Build binary by github-actions"
+            git push -f origin HEAD:bin
+          fi
