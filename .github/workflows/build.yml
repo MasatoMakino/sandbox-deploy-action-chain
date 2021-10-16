@@ -23,15 +23,10 @@ jobs:
         run: |
           npx tsc --project tsconfig.cjs.json
           npx tsc --project tsconfig.esm.json
-      - name: push dist
-        run: |
-          git remote set-url origin https://github-actions:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}
-          git config --global user.name "${GITHUB_ACTOR}"
-          git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-          git rm .gitignore
-          if (git diff --shortstat HEAD | grep '[0-9]'); then
-            git rm -r --cached .
-            git add LICENSE package.json README.md esm cjs
-            git commit -m "Build binary by github-actions"
-            git push -f origin HEAD:bin
-          fi
+          npm run copy_bin
+      - name: Deploy binary
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./bin
+          publish_branch: bin
