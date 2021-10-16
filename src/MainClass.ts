@@ -1,9 +1,9 @@
-export class MainClass{
-    constructor() {}
-    add(val:number):number{
-        return val + 1;
-    }
-    sub(val:number):number{
-        return val - 1;
-    }
+export class MainClass {
+  constructor() {}
+  add(val: number): number {
+    return val + 1;
+  }
+  sub(val: number): number {
+    return val - 1;
+  }
 }
