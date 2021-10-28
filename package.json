@@ -13,8 +13,8 @@
     "build_cjs": "npx tsc --project tsconfig.cjs.json",
     "build_esm": "npx tsc --project tsconfig.esm.json",
     "typedoc": "npx typedoc --out ./docs/api src/index.ts",
-    "demo_page": "npx gulp bundleDemo",
-    "dev_demo_page": "npx gulp watchDemo",
+    "demo_page": "npx gulptask-demo-page",
+    "dev_demo_page": "npx gulptask-demo-page --watch",
     "copy_bin": "npx copyfiles README.md package.json esm/**/* cjs/**/* bin"
   },
   "repository": {
