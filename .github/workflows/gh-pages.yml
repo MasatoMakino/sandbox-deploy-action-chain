@@ -1,29 +1,25 @@
-name: Publich github pages
+name: Publish github pages
 
 on:
   push:
     branches: [ main ]
-    paths:
-      - 'src/**'
-      - 'demoSrc/**'
-      - 'package.json'
-      - 'README.md'
-      - 'tsconfig**.json'
 
 jobs:
   publish:
     if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Use Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: '18'
           cache: 'npm'
       - run: npm ci
-      - name: Genarate API Pages
-        run: npx typedoc --out ./docs/api src/index.ts
+      - name: Generate API Pages
+        run: npm run typedoc
       - name: Generate Demo Pages
         run: npx gulptask-demo-page
       - name: Deploy Github pages
